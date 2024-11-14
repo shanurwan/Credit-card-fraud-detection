@@ -10,10 +10,10 @@ Credit card fraud occurs when unauthorized individuals or entities use someone e
 Credit Card Fraudalent Dataset : https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
 
 Data Overview 
-Time: Timestamp of the transaction.
-Amount: The amount of money involved in the transaction.
-Features V1 to V28: These are anonymized features derived from PCA transformations of the original data for privacy reasons.
-Class: The label indicating whether the transaction is fraudulent (1) or legitimate (0).
+- Time: Timestamp of the transaction.
+- Amount: The amount of money involved in the transaction.
+- Features V1 to V28: These are anonymized features derived from PCA transformations of the original data for privacy reasons.
+- Class: The label indicating whether the transaction is fraudulent (1) or legitimate (0).
 
 2. Data Exploration
 
@@ -29,5 +29,23 @@ Data description
 While balancing the data helps increase recall, it might also increase false positives (incorrectly labeling a legitimate transaction as fraud), which can be costly in a real-world application. For example, false positives can result in customer dissatisfaction, delays, and increased operational costs. In certain cases, focusing only on the minority class (fraudulent transactions) could lead to a situation where too many legitimate transactions are incorrectly flagged as fraud.
 
 4. Training Supervised Learning Model
- - Train a Baseline Logistic Regression using scikit-learn
- - 
+   
+Model Train : Baseline Logistic Regression using scikit-learn
+ - Confusion Matrix = The model has a high true positive and true negative while on the other side has low false positive and false negative. Therefore this mean the model perform quite well from this perspective. However the false negative should better be lower. 
+
+Improving Logistic Regression Model through Hyperparameter Selection
+- Hyper parameter = class_weight adjusted to {0:1, 1:50}
+
+ Logistic Regression Model interpretation :
+ 
+
+
+5. Performance Metrics for Fraud Detection
+
+6. Optimal Model Selection
+
+7. Improving Model Performance 
+
+Interpreting the Logistic Regression Model 
+
+
