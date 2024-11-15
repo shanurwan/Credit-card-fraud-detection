@@ -58,14 +58,14 @@ Cost Comparison:
 
 2. The estimated cost for implementing the XGBoost model is $29,426, which is cheaper compared to Logistic Regression at $30,020. Although the cost difference is relatively small, XGBoost offers better performance (in terms of precision, recall, and F1-score) and may lead to more cost-effective fraud detection solutions over time due to its ability to handle more complex patterns and provide higher accuracy.
 
-3.Model Performance:
+3. Model Performance:
 The XGBoost model performed well with:
 Precision: 93% — This indicates that 93% of the transactions predicted as fraudulent are actually fraudulent, minimizing false positives.
 Recall: 88% — This shows that 88% of actual fraudulent transactions were correctly identified, minimizing false negatives.
 F1-Score: 90% — The F1-score, which balances precision and recall, reflects a strong overall performance in detecting fraud without sacrificing one metric for the other.
 This high performance is crucial for fraud detection, where both precision (to avoid false alarms) and recall (to catch as many fraudulent transactions as possible) are critical.
 
-5. Feature Importance:
+4. Feature Importance:
 In both models (XGBoost and Logistic Regression), the feature V14 was identified as the most important feature in XGBoost and second highest in Logistic Regression. This indicates that V14 plays a critical role in predicting fraudulent transactions. The high importance of this feature in both models suggests that it carries significant information regarding transaction behavior and should be further examined or prioritized for feature engineering and model optimization.
 
 5. Recommendation for Future Steps:
