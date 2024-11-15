@@ -3,8 +3,6 @@
 ## About
 Credit card fraud occurs when unauthorized individuals or entities use someone else's credit card information to make purchases or access funds. As credit card transactions become increasingly digital, fraud detection systems need to handle large volumes of data in real-time while minimizing false positives (legitimate transactions incorrectly flagged as fraud). Machine learning (ML) is an effective tool for fraud detection, as it can analyze transaction patterns and detect anomalies that may indicate fraudulent activity. The goal of using ML is to build a model that can classify transactions as either legitimate or fraudulent based on transaction characteristics and historical data.
 
-## Problem Definition
-
 ## Methodology
 1. Data Collection
 Credit Card Fraudalent Dataset : https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
