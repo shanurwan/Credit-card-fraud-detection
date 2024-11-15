@@ -70,7 +70,11 @@ In both models (XGBoost and Logistic Regression), the feature V14 was identified
 5. Recommendation for Future Steps:
    
 Fine-Tune XGBoost Model: Given the strong performance of XGBoost, further hyperparameter tuning and cross-validation should be performed to optimize the model’s parameters and ensure even higher accuracy and robustness across different datasets and real-world scenarios.
+
 Monitor Overfitting: Regular monitoring should be conducted to ensure that the model is not overfitting to the training data. While XGBoost generally has built-in regularization to prevent this, it's important to regularly evaluate performance on out-of-sample data.
+
 Feature Engineering: Since V14 is a key feature, further exploration of its relationship with other features could provide insights into more complex interactions. Additionally, introducing new features or enhancing existing ones could improve model performance.
+
 Cost-Benefit Analysis: While XGBoost is slightly cheaper to implement, it is recommended to conduct a cost-benefit analysis based on the real-world impact of fraud detection performance. If Logistic Regression performs sufficiently well for the given use case (with acceptable precision, recall, and F1), it may still be a viable option for cost-sensitive environments, especially if interpretability is a primary concern.
+
 Real-Time Monitoring: For fraud detection systems, real-time model deployment is essential. XGBoost’s speed and efficiency should be leveraged for real-time prediction and continuous monitoring of transactions to ensure immediate flagging of potential fraud.
