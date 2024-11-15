@@ -5,7 +5,7 @@ Credit card fraud occurs when unauthorized individuals or entities use someone e
 
 ## Problem Definition
 
-## Data Preprocessing
+## Methodology
 1. Data Collection
 Credit Card Fraudalent Dataset : https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
 
@@ -26,26 +26,51 @@ Data description
 - This dataset represent supervised learning problem (binary (yes/no) classification)
 
 3. Sampling from imbalance data
-While balancing the data helps increase recall, it might also increase false positives (incorrectly labeling a legitimate transaction as fraud), which can be costly in a real-world application. For example, false positives can result in customer dissatisfaction, delays, and increased operational costs. In certain cases, focusing only on the minority class (fraudulent transactions) could lead to a situation where too many legitimate transactions are incorrectly flagged as fraud.
+While balancing the data helps increase recall, it might also increase false positives (incorrectly labeling a legitimate transaction as fraud), which can be costly in a real-world application. For example, false positives can result in customer dissatisfaction, delays, and increased operational costs. In certain cases, focusing only on the minority class (fraudulent transactions) could lead to a situation where too many legitimate transactions are incorrectly flagged as fraud. Therefore instead of balancing the data, class weight adjustmen was implemented. 
 
 4. Training Supervised Learning Model
    
-Model Train : Baseline Logistic Regression using scikit-learn
+Model Train : Baseline Logistic Regression 
+ - Logistic Regression is often used as a starting point to benchmark more complex models.
  - Confusion Matrix = The model has a high true positive and true negative while on the other side has low false positive and false negative. Therefore this mean the model perform quite well from this perspective. However the false negative should better be lower. 
 
 Improving Logistic Regression Model through Hyperparameter Selection
-- Hyper parameter = class_weight adjusted to {0:1, 1:50}
+- Hyperparameter = class_weight adjusted to {0:1, 1:50}
 
- Logistic Regression Model interpretation :
- 
+Model Train : Baseline Logistic XGBoost Classifier
+- XGBoost (Extreme Gradient Boosting) is one of the most popular machine learning algorithms, especially in applications like fraud detection. It is known for its high accuracy, speed, and flexibility.
+- Confusion Matrix = The model produce a significantly higher true positive and true negative while on the other side has lower false positive and false negative compare to previous model. This indicate better performance from this perspective. However there are 9 case of fraudalent unable to be detected which potentially can be improved.
 
+Improving XGBoost Model through Hyperparameter Selection
+- Hyperparametr = scale_pos_weight adjusted to 100
 
 5. Performance Metrics for Fraud Detection
+ - Estimate cost of fraud
+ - Classification Report
 
-6. Optimal Model Selection
+6. Improving Model Performance 
+- Up-sampling the Minority Class with SMOTE
 
-7. Improving Model Performance 
+## Finding and Recommendation
+1. XGBoost as an Optimal Model for Fraud Detection:
+XGBoost is a highly effective choice for fraud detection due to its ability to handle imbalanced data, capture complex patterns, and deliver high accuracy. With its strengths in interpretability, scalability, and speed, it is particularly well-suited for real-time fraud detection systems where both model accuracy and quick decision-making are critical. Its ability to deal with non-linear relationships and interactions between features makes it particularly useful for identifying fraudulent patterns that might not be easily detected by simpler models.
+Cost Comparison:
 
-Interpreting the Logistic Regression Model 
+2. The estimated cost for implementing the XGBoost model is $29,426, which is cheaper compared to Logistic Regression at $30,020. Although the cost difference is relatively small, XGBoost offers better performance (in terms of precision, recall, and F1-score) and may lead to more cost-effective fraud detection solutions over time due to its ability to handle more complex patterns and provide higher accuracy.
 
+3.Model Performance:
+The XGBoost model performed well with:
+Precision: 93% — This indicates that 93% of the transactions predicted as fraudulent are actually fraudulent, minimizing false positives.
+Recall: 88% — This shows that 88% of actual fraudulent transactions were correctly identified, minimizing false negatives.
+F1-Score: 90% — The F1-score, which balances precision and recall, reflects a strong overall performance in detecting fraud without sacrificing one metric for the other.
+This high performance is crucial for fraud detection, where both precision (to avoid false alarms) and recall (to catch as many fraudulent transactions as possible) are critical.
 
+5. Feature Importance:
+In both models (XGBoost and Logistic Regression), the feature V14 was identified as the most important feature in XGBoost and second highest in Logistic Regression. This indicates that V14 plays a critical role in predicting fraudulent transactions. The high importance of this feature in both models suggests that it carries significant information regarding transaction behavior and should be further examined or prioritized for feature engineering and model optimization.
+
+5. Recommendation for Future Steps:
+Fine-Tune XGBoost Model: Given the strong performance of XGBoost, further hyperparameter tuning and cross-validation should be performed to optimize the model’s parameters and ensure even higher accuracy and robustness across different datasets and real-world scenarios.
+Monitor Overfitting: Regular monitoring should be conducted to ensure that the model is not overfitting to the training data. While XGBoost generally has built-in regularization to prevent this, it's important to regularly evaluate performance on out-of-sample data.
+Feature Engineering: Since V14 is a key feature, further exploration of its relationship with other features could provide insights into more complex interactions. Additionally, introducing new features or enhancing existing ones could improve model performance.
+Cost-Benefit Analysis: While XGBoost is slightly cheaper to implement, it is recommended to conduct a cost-benefit analysis based on the real-world impact of fraud detection performance. If Logistic Regression performs sufficiently well for the given use case (with acceptable precision, recall, and F1), it may still be a viable option for cost-sensitive environments, especially if interpretability is a primary concern.
+Real-Time Monitoring: For fraud detection systems, real-time model deployment is essential. XGBoost’s speed and efficiency should be leveraged for real-time prediction and continuous monitoring of transactions to ensure immediate flagging of potential fraud.
