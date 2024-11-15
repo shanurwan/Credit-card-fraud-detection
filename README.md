@@ -26,6 +26,7 @@ Data description
 - This dataset represent supervised learning problem (binary (yes/no) classification)
 
 3. Sampling from imbalance data
+   
 While balancing the data helps increase recall, it might also increase false positives (incorrectly labeling a legitimate transaction as fraud), which can be costly in a real-world application. For example, false positives can result in customer dissatisfaction, delays, and increased operational costs. In certain cases, focusing only on the minority class (fraudulent transactions) could lead to a situation where too many legitimate transactions are incorrectly flagged as fraud. Therefore instead of balancing the data, class weight adjustmen was implemented. 
 
 4. Training Supervised Learning Model
