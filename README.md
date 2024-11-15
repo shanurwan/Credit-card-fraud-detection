@@ -68,6 +68,7 @@ This high performance is crucial for fraud detection, where both precision (to a
 In both models (XGBoost and Logistic Regression), the feature V14 was identified as the most important feature in XGBoost and second highest in Logistic Regression. This indicates that V14 plays a critical role in predicting fraudulent transactions. The high importance of this feature in both models suggests that it carries significant information regarding transaction behavior and should be further examined or prioritized for feature engineering and model optimization.
 
 5. Recommendation for Future Steps:
+   
 Fine-Tune XGBoost Model: Given the strong performance of XGBoost, further hyperparameter tuning and cross-validation should be performed to optimize the model’s parameters and ensure even higher accuracy and robustness across different datasets and real-world scenarios.
 Monitor Overfitting: Regular monitoring should be conducted to ensure that the model is not overfitting to the training data. While XGBoost generally has built-in regularization to prevent this, it's important to regularly evaluate performance on out-of-sample data.
 Feature Engineering: Since V14 is a key feature, further exploration of its relationship with other features could provide insights into more complex interactions. Additionally, introducing new features or enhancing existing ones could improve model performance.
